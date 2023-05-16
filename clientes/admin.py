@@ -1,3 +1,15 @@
 from django.contrib import admin
 
-# Register your models here.
+from clientes.models import Cliente
+
+
+class Clientes(admin.ModelAdmin):
+    list_display = ('id', 'nome', 'email', 'cpf', 'rg', 'celular', 'ativo')
+    list_display_links = ('id', 'nome')
+    list_editable = ('ativo', )
+    search_fields = ('nome', 'cpf')
+    list_filter = ('ativo', )
+    ordering = ('nome', )
+    list_per_page = 10
+
+admin.site.register(Cliente, Clientes)
