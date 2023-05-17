@@ -4,7 +4,7 @@ from validate_docbr import CPF
 
 '''Verifica se contém numero no nome'''
 def nome_valido(nome):
-    return nome.isalpha()
+    return all(nome.isalpha() or nome == ' ' for nome in nome)
 
 '''Verifica cpf'''
 def cpf_valido(numero_cpf):
